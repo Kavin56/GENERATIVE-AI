@@ -1,0 +1,74 @@
+.main-container {
+  width: 94%;
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2.5fr 7.5fr;
+  padding: 20px;
+  height: fit-content;
+  border-radius: 25px;
+  background-color: #181818;
+  align-items: top;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+#time-select {
+  display: flex;
+  flex-direction: column;
+}
+
+#mem-title {
+  color: white;
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+.opt {
+  display: flex;
+  justify-content: space-between;
+  /* width: 80%; */
+  color: white;
+  font-size: 18px;
+  margin: 3px 0;
+}
+
+#time-select select {
+  width: 70px;
+  background-color: #242424;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  border-color: #ff5bc3;
+}
+
+#memories-section {
+  height: 98%;
+  max-width: 724px;
+  width: 98%;
+  /* border: 2px solid white; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 3fr 3fr 3fr 3fr 3fr;
+  gap: 5px;
+  margin: 0 auto;
+  /* overflow: hidden; */
+}
+
+.day {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin: 0;
+}
+
+.memory {
+  width: 100%;
+  height: 100%;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moments</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <div class="modal hidden">
+      <div class="m-post">
+        <img src="dummy.jpg" alt="" class="m-post-img" />
+        <div class="m-post-details">
+          <p class="m-post-username">USER01</p>
+          <p class="m-post-caption">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+            consequatur minus id! Debitis temporibus dolore veniam amet, laborum
+            nam libero provident praesentium blanditiis, eos explicabo?
+          </p>
+          <p class="m-post-like">4❤️</p>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar">
+      <a href="index.html" class="nav-title"><h1>MOMENTS</h1></a>
+      <div class="navbutton-container">
+        <a
+          href="/previous-memories.html"
+          class="navbutton"
+          id="prevmem"
+          >Previous Memories</a
+        >
+        <div id="login-button-container">
+          <a href="/login.html" id="login-button" class="navbutton">Login</a>
+        </div>
+      </div>
+    </nav>
+    <main class="content">
+      <section id="moment-of-the-day">
+        <div id="moment-desc">
+          <h2 id="moment-title">Moment of the day</h2>
+          <p id="moment-story">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, amet?
+            Praesentium autem esse voluptatem magnam quas adipisci doloribus et
+            est cum! Illum ullam tempore eius.
+          </p>
+          <p id="moment-userdata">
+            -Osama Bin Laden, Follow on
+            <a
+              id="ins"
+              class="tp-post-bin"
+              href="https://www.instagram.com/?hl=en"
+            >
+              <img
+                src="download.jpeg"
+                alt="Instagram Logo"
+                width="20"
+                height="20"
+              />
+              <span>Instagram</span>
+            </a>
+          </p>
+        </div>
+        <img src="moment.jpg" alt="" id="moment-img" />
+      </section>
+      <section id="todays-posts">
+        <div id="tp-header">
+          <h2 id="tp-title">Today's Posts</h2>
+          <a href="upload.html" id="tp-post-btn">Post a moment</a>
+        </div>
+        <div id="tp-container">
+          <div class="post">
+            <img src="dummy.jpg" alt="" class="post-img" />
+            <p class="post-likes">8 likes</p>
+          </div>
+          <div class="post">
+            <img src="dummy.jpg" alt="" class="post-img" />
+            <p class="post-likes">12 likes</p>
+          </div>
+          <div class="post">
+            <img src="dummy.jpg" alt="" class="post-img" />
+            <p class="post-likes">5 likes</p>
+          </div>
+          <div class="post">
+            <img src="moment.jpg" alt="" class="post-img" />
+            <p class="post-likes">15 likes</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      // Function to check if the user is logged in (dummy logic, replace with
+      // your actual logic)
+      function isLoggedIn() {
+        return localStorage.getItem("userProfile") !== null;
+      }
+
+      function setupGoogleSignIn() {
+        google.accounts.id.initialize({
+          client_id: "YOUR_GOOGLE_CLIENT_ID", // Replace with your actual Google
+          // Client ID
+          callback: handleCredentialResponse,
+        });
+
+        google.accounts.id.renderButton(
+          document.getElementById("login-button-container"),
+          {
+            theme: "filled_black",
+            size: "large",
+            text: "Sign in with Google",
+          }, // customization attributes
+        );
+      }
+
+      // Function to handle the Google login response
+      function handleCredentialResponse(response) {
+        // Handle the Google login response and fetch user profile data
+        const id_token = response.credential;
+        console.log("id_token: " + id_token);
+
+        // fetch the user info and store into local storage and replace login
+        // with profile
+
+        fetch(
+          "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" + id_token,
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+
+            const userProfile = {
+              name: data.name,
+              email: data.email,
+              picture: data.picture,
+            };
+            localStorage.setItem("userProfile", JSON.stringify(userProfile));
+            updateNavbar();
+          })
+          .catch((error) => console.error("Error fetching user info:", error));
+      }
+
+      // Function to update the navbar based on login status
+      function updateNavbar() {
+        const loginButtonContainer =
+          document.getElementById("login-button-container");
+        const userProfileString = localStorage.getItem("userProfile");
+        const userProfile = userProfileString
+          ? JSON.parse(userProfileString)
+          : null;
+        if (userProfile) {
+          loginButtonContainer.innerHTML = `
+                <div class="user-profile">
+                <img class="user-profile-pic" src="${userProfile.picture}" alt="Profile Pic" />
+                <span class="user-profile-name">${userProfile.name}</span>
+                </div>
+            `;
+        } else {
+          loginButtonContainer.innerHTML = `<a href="/login.html" id="login-button" class="navbutton">Login</a>`;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!isLoggedIn()) {
+          setupGoogleSignIn();
+        }
+        updateNavbar();
+      });
+    </script>
+  </body>
+</html>

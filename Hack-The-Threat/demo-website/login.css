@@ -1,0 +1,157 @@
+/* Importing modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600&display=swap');
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #000000, #121212);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animated Gradient Effect on Cursor */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 77, 77, 0.2), transparent);
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+}
+
+/* Cursor Effect Movement */
+body:hover::before {
+    transform: translate(var(--x, 50px), var(--y, 50px));
+}
+
+/* this is for the login form*/
+#login-form {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 200px;
+}   
+
+.input-group {
+    margin-bottom: 1px;
+    margin-top: 10px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Container Styling */
+.login-container {
+    padding: 40px;
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 99, 71, 0.8);
+    border: 2px solid rgba(255, 77, 77, 0.8);
+    backdrop-filter: blur(20px);
+    animation: glow 2s infinite alternate;
+}
+
+/* Neon Glow Animation */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px rgba(255, 99, 71, 0.8);
+    }
+    to {
+        box-shadow: 0 0 40px rgba(255, 99, 71, 1);
+    }
+}
+
+/* Heading Styling */
+.login-container h1 {
+    font-size: 2.5rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    color: #ff4b2b;
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+/* Compact Google Sign-In Button */
+.g_id_signin {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Button Styling */
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 99, 71, 0.8);
+}
+
+/* Hover Effect on Button */
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 99, 71, 1);
+}
+
+/* Error Message Styling */
+#error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 1rem;
+}

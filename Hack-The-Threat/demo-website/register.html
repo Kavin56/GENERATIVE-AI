@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="register.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="index.html"><h1 class="jersey-20-regular">MOMENTS</h1></a>
+
+      <div class="navbutton-container">
+        <a
+          href="/previous-memories.html"
+          class="navbutton jersey-20-regular"
+          id="prevmem"
+          >Previous Memories</a
+        >
+        <a href="/login.html" class="navbutton jersey-20-regular">Login </a>
+      </div>
+    </div>
+    <div id="login-page">
+      <form action="" id="register-form">
+        <h3 style="font-size: 30px; margin: 0" class="jersey-20-regular">
+          Register
+        </h3>
+        <div class="form-input instrument-sans-100">
+          <label for="name">Name</label>
+          <input name="Name" type="Name" placeholder="Jon Snow" />
+        </div>
+        <div class="form-input instrument-sans-100">
+          <label for="email">Email</label>
+          <input name="email" type="email" placeholder="username@example.com" />
+        </div>
+        <div class="form-input instrument-sans-100">
+          <label for="passwd">Password</label>
+          <input type="password" name="passwd" id="passwd" />
+        </div>
+        <div class="form-input instrument-sans-100">
+          <label for="re-passwd">Re-Enter Password</label>
+          <input type="password" name="re-passwd" id="re-passwd" />
+        </div>
+        <button>Register</button>
+        <p class="jersey-20-regular" style="font-size: 20px">
+          Already a user?
+          <a
+            href="/login.html"
+            style="color: rgb(245, 200, 200)"
+            class="instrument-sans-100"
+            >Login</a
+          >
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

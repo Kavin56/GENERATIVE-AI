@@ -1,0 +1,47 @@
+#login-page {
+  /* border: 2px solid white; */
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#register-form {
+  width: 300px;
+  /* border: 2px solid white; */
+  height: 200px;
+  min-height: fit-content;
+  background-color: #181818;
+  color: white;
+  padding: 25px;
+  border-radius: 25px;
+
+  /* margin: 0 auto; */
+}
+
+.form-input {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-input input {
+  background-color: #242424;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  border-color: #ff5bc3;
+  box-shadow: 2px 2px 4px #4f4e4e;
+  font-size: 16px;
+}
+
+#register-form button {
+  background-color: #fa3cb4;
+  height: 30px;
+  width: 70px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 2px 2px 4px #4f4e4e;
+  cursor: pointer;
+}

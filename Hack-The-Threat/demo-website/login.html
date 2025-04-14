@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Momento!</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form" action="/login" method="POST">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>      
+
+        
+        <div id="g_id_onload"
+            data-client_id="356605619715-j957gqr93v6ktq3bbo808qlpet393odu.apps.googleusercontent.com"
+            data-callback="handleCredentialResponse"
+            data-auto_prompt="false">
+        </div>
+        
+        
+        <div class="g_id_signin" data-type="icon"></div>
+        
+        <p id="error-message" style="color: red; display: none;"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
